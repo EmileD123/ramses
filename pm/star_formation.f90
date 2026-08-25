@@ -733,8 +733,8 @@ subroutine star_formation(ilevel)
 
            ! Set GMC particle variables
            if(f_w>0)then
-              ! Compute GMC mass without more than 50% of gas depletion
-              mdebris=min(f_w*n*mstar,0.5d0*(d*vol_loc-n*mstar))
+              ! Compute GMC mass without more than 25% of gas depletion (see Wu,Cen and Teyssier 2026 - page 3) -> it is 50 % in the global version of the code!
+              mdebris=min(f_w*n*mstar,0.25d0*(d*vol_loc-n*mstar))
               ! Add supernova ejecta
               mdebris=mdebris+eta_sn*n*mstar
               ! Remove ejecta from the long lived star mass

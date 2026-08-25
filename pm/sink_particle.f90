@@ -1283,7 +1283,7 @@ subroutine compute_accretion_rate(write_sinks)
         dMBHoverdt_smbh(isink)=4*pi*rho_inf_smbh*r2_smbh*v_bondi
         dMEDoverdt_smbh(isink)=4*pi*factG_in_cgs*msmbh(isink)*mH/(0.1d0*sigma_T*c_cgs)*scale_t
         if(bondi_accretion)dMsmbh_overdt(isink)=dMBHoverdt_smbh(isink)
-        if(eddington_limit)dMsmbh_overdt(isink)=min(dMBHoverdt(isink),dMEDoverdt_smbh(isink))
+        if(eddington_limit)dMsmbh_overdt(isink)=min(dMBHoverdt(isink),eddington_cap*dMEDoverdt_smbh(isink)) !modif : allows to take into account "eddington_cap" when "mass_smbh_seed>0.0"
         dMsink_overdt(isink)=max(0d0,dMBHoverdt(isink)-dMsmbh_overdt(isink))
      end if
 
