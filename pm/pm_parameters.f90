@@ -74,7 +74,8 @@ module pm_parameters
   real(dp)::fudge_graddescent=1.0d0         ! Fudge factor for the for the BB gradient descent
 
   character(LEN=15)::agn_acc_method='mass'
-  character(LEN=15)::agn_inj_method='volume'
+  character(LEN=15)::agn_inj_method='mass'  ! Yohan m'a précisé que c'est une meilleure manière de déposer l'énergie que 'volume':
+                                            ! évite de vider les "grandes" cellules avec peu de gaz (Dubois et al. 2012 ~)
 
   type part_t
      ! We store these two things contiguously in memory

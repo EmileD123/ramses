@@ -1132,7 +1132,7 @@ subroutine accrete_sink(ind_grid,ind_part,ind_grid_part,ng,np,ilevel,on_creation
 
            m_acc=m_acc+m_acc_smbh
            ! Accrete mass, momentum and gas total energy
-           unew(indp(j,ind),1)=unew(indp(j,ind),1)-m_acc/vol_loc
+           unew(indp(j,ind),1)=unew(indp(j,ind),1)-m_acc/vol_loc  ! note ED : the density accreted by the sink particle is taken away from the cell
            unew(indp(j,ind),2:ndim+1)=unew(indp(j,ind),2:ndim+1)-m_acc*vv(1:ndim)/vol_loc
            unew(indp(j,ind),neul)=unew(indp(j,ind),neul)-m_acc*e/vol_loc
            ! Note that we do not accrete magnetic fields and non-thermal energies.
